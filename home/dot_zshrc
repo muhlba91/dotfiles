@@ -56,7 +56,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(pyenv init -)"
+(( $+commands[pyenv] )) && eval "$(pyenv init -)"
 
 # mise: keep after nvm/pyenv so its tools take precedence in interactive shells
 [[ -x /opt/homebrew/bin/mise ]] && eval "$(/opt/homebrew/bin/mise activate zsh)"
@@ -75,7 +75,7 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/home
 if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
 
 # GPG_TTY and SSH_AUTH_SOCK are set by the oh-my-zsh gpg-agent plugin; the agent itself must be running for ssh
-gpgconf --launch gpg-agent
+(( $+commands[gpgconf] )) && gpgconf --launch gpg-agent
 alias yk-learn='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 # Kiro CLI post block. Keep at the bottom of this file.
