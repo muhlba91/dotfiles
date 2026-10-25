@@ -9,5 +9,5 @@ if [[ ! -x "$CODE" ]]; then
 fi
 
 {{ range .vscode.extensions -}}
-"$CODE" --install-extension "{{ . }}" --force
+"$CODE" --install-extension "{{ . }}"
 {{ end -}}
