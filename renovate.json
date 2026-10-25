@@ -1,0 +1,39 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>muhlba91/renovate-config",
+    "github>muhlba91/renovate-config:automerge(patch)",
+    "github>muhlba91/renovate-config:automerge(minor)"
+  ],
+  "enabledManagers": [
+    "github-actions",
+    "pre-commit",
+    "custom.regex"
+  ],
+  "pre-commit": {
+    "enabled": true
+  },
+  "customManagers": [
+    {
+      "description": "tag-pinned archives in .chezmoiexternal.toml",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)\\.chezmoiexternal\\.toml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>github-tags) depName=(?<depName>\\S+)\\n\\[[^\\n]+\\]\\n\\s+type = \"archive\"\\n\\s+url = \"[^\"]+/archive/refs/tags/(?<currentValue>[^\"]+?)\\.tar\\.gz\""
+      ]
+    },
+    {
+      "description": "commit-pinned archives in .chezmoiexternal.toml (no tags upstream, follows the default branch)",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)\\.chezmoiexternal\\.toml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>git-refs) depName=(?<depName>\\S+)\\n\\[[^\\n]+\\]\\n\\s+type = \"archive\"\\n\\s+url = \"[^\"]+/archive/(?<currentDigest>[a-f0-9]{40})\\.tar\\.gz\""
+      ],
+      "currentValueTemplate": "master"
+    }
+  ]
+}

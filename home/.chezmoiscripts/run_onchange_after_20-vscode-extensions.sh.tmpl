@@ -1,0 +1,13 @@
+#!/bin/bash
+# Re-runs when vscode.extensions in .chezmoidata/packages.yaml changes.
+set -euo pipefail
+
+CODE=/opt/homebrew/bin/code-insiders
+if [[ ! -x "$CODE" ]]; then
+  echo "warning: code-insiders not found, skipping VS Code extensions" >&2
+  exit 0
+fi
+
+{{ range .vscode.extensions -}}
+"$CODE" --install-extension "{{ . }}" --force
+{{ end -}}

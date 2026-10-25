@@ -1,0 +1,36 @@
+---
+name: macOS Apply
+
+on:
+  schedule:
+    - cron: "10 5 1 * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    runs-on: macos-latest
+    name: macOS Apply
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - run: brew install chezmoi
+
+      # the full brew bundle is skipped: it would install every package of the real machine
+      - run: chezmoi init --apply --source "$GITHUB_WORKSPACE"
+        env:
+          DOTFILES_SKIP_BREW: "1"
+
+      - run: |
+          zsh -ic 'echo "oh-my-zsh: ${ZSH}"; [[ -f "${ZSH}/oh-my-zsh.sh" ]]'
+          for f in ~/.zshrc ~/.zprofile ~/.zshenv; do zsh -n "$f"; done
+          chezmoi verify

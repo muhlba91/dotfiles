@@ -1,0 +1,31 @@
+#!/bin/bash
+# Re-runs when the package lists in .chezmoidata/packages.yaml change.
+set -euo pipefail
+
+if [[ -n "${DOTFILES_SKIP_BREW:-}" ]]; then
+  echo "DOTFILES_SKIP_BREW is set, skipping the brew bundle"
+  exit 0
+fi
+
+BREW=/opt/homebrew/bin/brew
+if [[ ! -x "$BREW" ]]; then
+  echo "Homebrew is missing at $BREW: install it first (see docs/RESTORE.md)" >&2
+  exit 1
+fi
+
+"$BREW" bundle --file=- <<'BREWFILE'
+{{ range .brew.taps -}}
+tap "{{ . }}"
+{{ end -}}
+{{ range .brew.formulae -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range .brew.casks -}}
+cask "{{ . }}"
+{{ end -}}
+BREWFILE
+
+# a fresh Homebrew creates group-writable share/zsh directories, which makes compinit skip all brew completions
+if command -v zsh > /dev/null; then
+  zsh -c 'autoload -U compaudit; compaudit' | xargs -I{} chmod g-w,o-w {} || true
+fi

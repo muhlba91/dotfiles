@@ -1,0 +1,31 @@
+# Pinned archives (no .git); Renovate bumps the refs. Do not use `exact` on oh-my-zsh: custom/ and cache/ live inside it.
+
+# renovate: datasource=git-refs depName=https://github.com/ohmyzsh/ohmyzsh
+[".oh-my-zsh"]
+    type = "archive"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/2100c630ba4bd67bb48802c3e7da893a4fdaa1a0.tar.gz"
+    stripComponents = 1
+
+# renovate: datasource=github-tags depName=romkatv/powerlevel10k
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.20.0.tar.gz"
+    stripComponents = 1
+
+# renovate: datasource=github-tags depName=zsh-users/zsh-autosuggestions
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/tags/v0.7.1.tar.gz"
+    stripComponents = 1
+
+# renovate: datasource=github-tags depName=zsh-users/zsh-syntax-highlighting
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.8.0.tar.gz"
+    stripComponents = 1
+
+# renovate: datasource=git-refs depName=https://github.com/vim-airline/vim-airline
+[".vim/pack/plugins/start/vim-airline"]
+    type = "archive"
+    url = "https://github.com/vim-airline/vim-airline/archive/8dc1bd0a116de527f6bc58c1d04386ba357c624f.tar.gz"
+    stripComponents = 1

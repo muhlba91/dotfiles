@@ -1,0 +1,19 @@
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = false
+window-subtitle = working-directory
+window-theme = system
+background-opacity = 0.9
+background-blur = 25
+window-height = 50
+window-width = 200
+window-save-state = always
+font-size = 12
+font-family = Monaco
+auto-update = off
+auto-update-channel = tip
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+palette = 15=#554b2b
+cursor-style-blink = false
+window-inherit-working-directory = false
+working-directory = home

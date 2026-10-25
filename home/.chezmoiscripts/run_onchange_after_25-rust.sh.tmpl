@@ -1,0 +1,12 @@
+#!/bin/bash
+# rustup is keg-only, so call it by full path; the formula ships only the proxy, no toolchain.
+set -euo pipefail
+
+RUSTUP=/opt/homebrew/opt/rustup/bin/rustup
+if [[ ! -x "$RUSTUP" ]]; then
+  echo "warning: rustup not found, skipping the Rust toolchain" >&2
+  exit 0
+fi
+
+"$RUSTUP" default stable
+"$RUSTUP" component add clippy rustfmt rust-src

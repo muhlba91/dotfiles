@@ -1,0 +1,7 @@
+set nocompatible
+filetype plugin indent on
+syntax on
+colo default
+
+set laststatus=2
+let g:airline_powerline_fonts = 1

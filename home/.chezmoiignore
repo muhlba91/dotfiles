@@ -1,0 +1,13 @@
+# never pick these up, even if someone runs `chezmoi add` on them
+.ssh/known_hosts*
+.ssh/agent
+.aws
+.kube
+.oci
+.docker
+.config/gcloud
+.config/gh/hosts.yml
+.config/zsh/secrets.zsh
+gpg
+.claude/skills
+.claude.json

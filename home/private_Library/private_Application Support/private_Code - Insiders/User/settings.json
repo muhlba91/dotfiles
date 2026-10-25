@@ -1,0 +1,281 @@
+{
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "dotenv.enableAutocloaking": false,
+  "editor.accessibilitySupport": "off",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    "[*Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#fff"
+          }
+        }
+      ]
+    },
+    "textMateRules": []
+  },
+  "enableTelemetry": false,
+  "eslint.codeActionsOnSave.rules": null,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.trustedPublishers": [
+    "4ops",
+    "christian-kohler",
+    "codezombiech",
+    "cracrayol",
+    "dart-code",
+    "davidanson",
+    "dotenv",
+    "eamodio",
+    "esbenp",
+    "formulahendry",
+    "fwcd",
+    "golang",
+    "google",
+    "googlecloudtools",
+    "hashicorp",
+    "redhat",
+    "rust-lang",
+    "shengchen",
+    "swellaby",
+    "syler",
+    "tamasfe",
+    "vmware",
+    "vue",
+    "wayou",
+    "yzhang"
+  ],
+  "files.associations": {
+    "flake.lock": "json",
+    ".env*": "dotenv",
+    "*.gotmpl": "gotemplate"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.edits.codesearch.enabled": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
+  "github.copilot.chat.enableUserPreferences": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.inlineChatCompletionTrigger.enabled": true,
+  "github.copilot.chat.inlineChatHint.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "markdown": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "java.completion.importOrder": [
+    "#",
+    "java",
+    ""
+  ],
+  "java.configuration.runtimes": [],
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home",
+  "notebook.formatOnSave.enabled": true,
+  "print.folder.exclude": [
+    "{bin,obj,out}",
+    "node_modules",
+    "data",
+    "**/*.{bin,exe,dll,hex,pdb,pdf,pfx,png,jpg,gif,bmp,suo,design}"
+  ],
+  "print.folder.fileNames": true,
+  "print.folder.include": [],
+  "print.folder.includeFileList": false,
+  "print.folder.maxFiles": 30,
+  "print.folder.maxLines": 1200,
+  "projectManager.tags": [
+    "Home Center",
+    "Home Cluster",
+    "Onyx"
+  ],
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.env.osx": {
+    "CW_NEW_SESSION": "1",
+    "FIG_NEW_SESSION": "1",
+    "Q_NEW_SESSION": "1"
+  },
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "disabled"
+  },
+  "workbench.colorTheme": "Light+",
+  "yaml.customTags": [
+    "!And",
+    "!And sequence",
+    "!If",
+    "!If sequence",
+    "!Not",
+    "!Not sequence",
+    "!Equals",
+    "!Equals sequence",
+    "!Or",
+    "!Or sequence",
+    "!FindInMap",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Join",
+    "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Split sequence"
+  ],
+  "go.toolsManagement.autoUpdate": true,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+  "chat.tools.terminal.outputLocation": "chat",
+  "chat.mcp.serverSampling": {
+    "Global in Code - Insiders: io.github.github/github-mcp-server": {
+      "allowedModels": [
+        "copilot/auto"
+      ]
+    },
+    "Global in Code - Insiders: io.github.upstash/context7": {
+      "allowedModels": [
+        "copilot/auto"
+      ]
+    }
+  },
+  "makefile.configureOnOpen": false,
+  "workbench.startupEditor": "none",
+  "gitlens.plusFeatures.enabled": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.statusBar.pullRequests.enabled": false,
+  "gitlens.home.preview.enabled": false,
+  "gitlens.ai.enabled": false,
+  "gitlens.telemetry.enabled": false,
+  "json.schemaDownload.trustedDomains": {
+    "https://docs.renovatebot.com/": true,
+    "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/": true
+  },
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "zoo-code.debug": false,
+  "zoo-code.allowedCommands": [
+    "git log",
+    "git diff",
+    "git show",
+    "make lint",
+    "make build",
+    "make fix",
+    "make test",
+    "mv",
+    "grep",
+    "go",
+    "curl",
+    "head",
+    "find",
+    "ls",
+    "./gradlew",
+    "echo",
+    "git",
+    "esphome config",
+    "terraform validate",
+    "cd",
+    "npm run test:unit",
+    "yarn test:unit",
+    "cat",
+    "mkdir",
+    "strings",
+    "true",
+    "mvn verify",
+    "poetry",
+    "python3",
+    "pytest",
+    "helm lint",
+    "helm dependency update",
+    "helm template",
+    "yamllint",
+    "kubeconform",
+    "shellcheck",
+    "ruff",
+    "tail",
+    "python",
+    "sed",
+    "chmod",
+    "typstyle",
+    "typst",
+    "rm -rf mutants",
+    "sort",
+    "awk",
+    "uniq",
+    "rm -rf mutations .mutmut-cache",
+    "rm -rf mutations",
+    "yarn"
+  ],
+  "zoo-code.deniedCommands": [],
+  "tinymist.formatterPrintWidth": 160,
+  "explorer.confirmPasteNative": false,
+  "kotlin.languageServer.enabled": false,
+  "kotlin.debugAdapter.enabled": false,
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.podmancompose",
+  "dev.containers.dockerPath": "podman",
+  "dev.containers.dockerComposePath": "podman-compose"
+}

@@ -1,0 +1,25 @@
+[user]
+	name = Daniel Muehlbachler-Pietrzykowski
+	email = daniel@muehlbachler.io
+	signingkey = 150D55D19494A6B883BA503877E84888CEEAC583
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[push]
+	default = simple
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
+[init]
+	defaultBranch = main
+[status]
+	submoduleSummary = true
+[tag]
+	gpgSign = true

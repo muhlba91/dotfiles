@@ -1,0 +1,48 @@
+---
+repos:
+  - repo: https://github.com/talos-systems/conform
+    rev: v0.1.0-alpha.31
+    hooks:
+      - id: conform
+        stages:
+          - commit-msg
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-yaml
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=512"]
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: shellcheck # plain .sh only; .sh.tmpl files are checked in CI after rendering
+        exclude: \.zsh$ # shellcheck cannot parse zsh (p10k config)
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+  - repo: local
+    hooks:
+      - id: zsh-syntax
+        name: zsh -n
+        entry: zsh -c 'for f; do zsh -n "$f" || exit 1; done' --
+        language: system
+        files: (^|/)dot_(zshrc|zprofile|zshenv)$
+      - id: forbidden-paths
+        name: forbid secret-like files
+        language: fail
+        entry: secret-like file must not be committed
+        files: (secrets\.zsh|\.pem$|\.key$|(^|/)id_(rsa|ecdsa|ed25519)|known_hosts|hosts\.yml|\.aws/|\.kube/|\.oci/|\.docker/config|\.claude\.json|(^|/)gpg/)

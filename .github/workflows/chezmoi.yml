@@ -1,0 +1,43 @@
+---
+name: Chezmoi
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    name: Chezmoi
+
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: jaxxstorm/action-install-gh-release@25e24d2d23ae098373794ef1d6faecb48ee52da8 # v3.0.0
+        with:
+          repo: twpayne/chezmoi
+
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y zsh
+
+      - run: .github/scripts/check-chezmoi.sh
+        env:
+          DESTINATION: ${{ runner.temp }}/home
+          SCRATCH: ${{ runner.temp }}/chezmoi
