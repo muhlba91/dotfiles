@@ -4,9 +4,8 @@ title = "dotfiles gitleaks config"
 useDefault = true
 
 # the GPG signing key fingerprint is a public identifier, but trips generic-api-key
-[[allowlists]]
+# (legacy [allowlist] on purpose: the gitleaks-action bundles an older gitleaks without [[allowlists]])
+[allowlist]
 description = "public GPG key fingerprint in the git config"
-condition = "AND"
 regexTarget = "line"
-paths = ['''(^|/)dot_gitconfig(\.tmpl)?$''']
 regexes = ['''signingkey\s*=\s*[0-9A-Fa-f]{40}''']
