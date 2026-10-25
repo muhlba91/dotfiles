@@ -41,5 +41,21 @@
       ],
       "currentValueTemplate": "master"
     }
+  ],
+  "packageRules": [
+    {
+      "description": "python minor/major updates change the default interpreter outside repos: merge them by hand",
+      "matchManagers": [
+        "mise"
+      ],
+      "matchDepNames": [
+        "python"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "major"
+      ],
+      "automerge": false
+    }
   ]
 }
