@@ -5,7 +5,6 @@ brew:
     - anchore/grype
     - fluxcd/tap
     - goodwithtech/r
-    - goreleaser/tap
     - k0sproject/tap
     - netbirdio/tap
     - pulumi/tap
@@ -31,18 +30,20 @@ brew:
     - git-filter-repo
     - gitleaks
     - glab
-    - golangci-lint
+    - gnupg
+    - go
     - goodwithtech/r/dockle
     - gradle
+    - helm
     - grype
     - hadolint
-    - hugo
     - jq
     - jsonnet
     - k0sproject/tap/k0sctl
     - k3d
     - k9s
     - ksops
+    - kubernetes-cli
     - kubeconform
     - kubeseal
     - kustomize
@@ -53,7 +54,9 @@ brew:
     - minikube
     - mise
     - ninja
+    - openjdk
     - pinentry-mac
+    - podman
     - podman-compose
     - poetry
     - poppler
@@ -61,7 +64,6 @@ brew:
     - pulumi
     - pulumi/tap/crd2pulumi
     - pulumi/tap/pulumictl
-    - pyenv
     - qemu
     - re2
     - rpki-client
@@ -81,15 +83,12 @@ brew:
     - tmux
     - trivy
     - typst
-    - typstyle
     - vcluster
     - velero
-    - virtualenv
     - wget
     - yamllint
     - ykman
     - yq
-    - zlib
   casks:
     - adobe-digital-editions
     - affinity
@@ -104,7 +103,6 @@ brew:
     - fuse-t
     - gcloud-cli
     - ghostty@tip
-    - goreleaser/tap/goreleaser
     - iina
     - insomnia
     - iterm2

@@ -1,0 +1,5 @@
+# Defaults outside repos with a mise.toml (replaces nvm and pyenv); repos pin their own versions.
+# Keep this to interpreters: CI tools belong in each repo's mise.toml.
+[tools]
+node = "24.22.1"
+python = "3.14.9"

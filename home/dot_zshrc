@@ -57,13 +57,7 @@ export PATH="$GOPATH/bin:$PATH"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-(( $+commands[pyenv] )) && eval "$(pyenv init -)"
-
-# mise: keep after nvm/pyenv so its tools take precedence in interactive shells
+# mise: per-repo tools from mise.toml, node/python defaults from ~/.config/mise/config.toml
 [[ -x /opt/homebrew/bin/mise ]] && eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 # esp-idf-sys/cc workaround: https://github.com/esp-rs/esp-idf-sys/issues/223#issuecomment-2027764032

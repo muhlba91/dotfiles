@@ -7,9 +7,15 @@
   ],
   "enabledManagers": [
     "github-actions",
+    "mise",
     "pre-commit",
     "custom.regex"
   ],
+  "mise": {
+    "managerFilePatterns": [
+      "/(^|/)dot_config/mise/config\\.toml$/"
+    ]
+  },
   "pre-commit": {
     "enabled": true
   },
