@@ -3,7 +3,7 @@
 # renovate: datasource=git-refs depName=https://github.com/ohmyzsh/ohmyzsh
 [".oh-my-zsh"]
     type = "archive"
-    url = "https://github.com/ohmyzsh/ohmyzsh/archive/2100c630ba4bd67bb48802c3e7da893a4fdaa1a0.tar.gz"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/d2b7f557cceaddb16ba89bbf8200d8a8df35c4d8.tar.gz"
     stripComponents = 1
 
 # renovate: datasource=github-tags depName=romkatv/powerlevel10k
