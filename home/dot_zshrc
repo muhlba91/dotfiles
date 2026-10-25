@@ -27,6 +27,11 @@ plugins=(
   poetry
 )
 
+# zsh-autosuggestions settings (read when the plugin loads)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
