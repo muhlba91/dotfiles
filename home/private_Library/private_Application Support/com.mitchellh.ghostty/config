@@ -17,3 +17,5 @@ palette = 15=#554b2b
 cursor-style-blink = false
 window-inherit-working-directory = false
 working-directory = home
+cursor-style = block
+shell-integration-features = no-cursor,path,title

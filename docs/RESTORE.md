@@ -76,7 +76,7 @@ Recreate `~/.config/zsh/secrets.zsh` (mode `600`) from the password manager. It 
 - `gcloud auth login`
 - the Kubernetes configuration (`kubectl`, `talosctl`)
 
-Then sign in to the applications: Raycast (import its export file), the cloud drive applications, Kiro, and Claude.
+Then sign in to the applications: Raycast (import its export file), the cloud drive applications, and Claude.
 
 ## 7. Optional
 
