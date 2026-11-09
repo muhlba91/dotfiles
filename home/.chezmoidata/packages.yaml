@@ -123,6 +123,7 @@ brew:
     - visual-studio-code@insiders
 vscode:
   extensions:
+    - coder.coder-remote
     - codezombiech.gitignore
     - dart-code.dart-code
     - dart-code.flutter
