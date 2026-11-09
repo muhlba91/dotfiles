@@ -5,6 +5,7 @@ brew:
     - anchore/grype
     - fluxcd/tap
     - goodwithtech/r
+    - hashicorp/tap
     - k0sproject/tap
     - netbirdio/tap
     - pulumi/tap
@@ -34,6 +35,7 @@ brew:
     - go
     - goodwithtech/r/dockle
     - gradle
+    - hashicorp/tap/vault
     - helm
     - grype
     - hadolint
