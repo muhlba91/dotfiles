@@ -1,1 +1,4 @@
 [[ -r "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+
+# Vault CLI default server
+export VAULT_ADDR="https://vault.platform.muehlbachler.io:8200"
