@@ -19,9 +19,10 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
-  gpg-agent
   poetry
 )
+# the YubiKey's gpg-agent is the ssh agent on macOS only (the plugin replaces SSH_AUTH_SOCK)
+[[ $OSTYPE == darwin* ]] && plugins+=(gpg-agent)
 
 # zsh-autosuggestions settings (read when the plugin loads)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'

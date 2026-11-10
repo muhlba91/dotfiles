@@ -1,0 +1,4 @@
+[user]
+	signingkey = 150D55D19494A6B883BA503877E84888CEEAC583
+[gpg]
+	program = /opt/homebrew/bin/gpg

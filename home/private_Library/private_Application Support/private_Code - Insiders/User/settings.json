@@ -1,4 +1,5 @@
 {
+  "terminal.integrated.fontFamily": "Menlo, 'Symbols Nerd Font Mono'",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,

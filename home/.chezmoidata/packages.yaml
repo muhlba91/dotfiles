@@ -102,6 +102,7 @@ brew:
     - cryptomator
     - font-inter
     - font-maple-mono
+    - font-symbols-only-nerd-font
     - fuse-t
     - gcloud-cli
     - ghostty@tip

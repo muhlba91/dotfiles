@@ -11,3 +11,15 @@
 gpg
 .claude/skills
 .claude.json
+
+{{ if ne .chezmoi.os "darwin" }}
+# macOS only: Linux (the dev VMs) gets the shell, git, tmux, vim and mise; the host's identity (git signing,
+# SSH, fnox, Vault) comes from its own configuration
+.chezmoiscripts/darwin/**
+Library
+.gnupg
+.ssh
+.config/fnox
+.config/git/gpg-signing
+.claude
+{{ end }}

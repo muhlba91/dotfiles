@@ -6,6 +6,8 @@
 
 This repository contains my macOS (Apple Silicon) configuration, managed with [chezmoi](https://www.chezmoi.io): shell, git, GPG/SSH, editors, terminal, Homebrew packages, and VS Code extensions.
 
+On Linux (the dev VMs) it applies only the shell, git, tmux, vim and mise: the host's own configuration provides its identity (git signing, SSH, fnox, Vault).
+
 ---
 
 ## Requirements
@@ -30,15 +32,15 @@ This clones the repository (over https, no credentials needed) into chezmoi's de
 
 - [`home/`](home/): the files that are applied to `$HOME`, named by chezmoi's [source state conventions](https://www.chezmoi.io/reference/source-state-attributes/) (`dot_zshrc` becomes `~/.zshrc`).
 - [`home/.chezmoi.toml.tmpl`](home/.chezmoi.toml.tmpl): remembers the repository's location as chezmoi's source directory.
-- [`home/.chezmoiignore`](home/.chezmoiignore): paths that must never be picked up (credentials, caches, agent sockets).
+- [`home/.chezmoiignore`](home/.chezmoiignore): paths that must never be picked up (credentials, caches, agent sockets), and the macOS-only files on Linux.
 - [`home/.chezmoiexternal.toml`](home/.chezmoiexternal.toml): pinned archives of oh-my-zsh, its theme and plugins, and vim-airline.
 - [`home/.chezmoidata/packages.yaml`](home/.chezmoidata/packages.yaml): Homebrew taps, formulae, casks, and VS Code extensions.
-- [`home/.chezmoiscripts/`](home/.chezmoiscripts/): scripts that install the packages, set up the Rust toolchain, and write macOS defaults.
+- [`home/.chezmoiscripts/darwin/`](home/.chezmoiscripts/darwin/): scripts that install the packages, set up the Rust toolchain, and write macOS defaults (macOS only).
 - [`docs/`](docs/): documentation.
 
 ## Scripts
 
-The scripts in [`home/.chezmoiscripts/`](home/.chezmoiscripts/) run during `chezmoi apply`:
+The scripts in [`home/.chezmoiscripts/darwin/`](home/.chezmoiscripts/darwin/) run during `chezmoi apply` on macOS:
 
 - `run_onchange_before_10-brew-bundle.sh.tmpl`: installs everything in `packages.yaml` via `brew bundle`; re-runs when the lists change.
 - `run_onchange_after_20-vscode-extensions.sh.tmpl`: installs the VS Code (Insiders) extensions; re-runs when the list changes.
@@ -72,7 +74,7 @@ Start managing a new file:
 chezmoi add ~/.some-config
 ```
 
-**Attention**: `chezmoi add` refuses files that look like they contain a secret. If a file only contains a public identifier, review it and use `--secrets ignore` (this is the case for `~/.gitconfig`).
+**Attention**: `chezmoi add` refuses files that look like they contain a secret. If a file only contains a public identifier, review it and use `--secrets ignore` (this is the case for `~/.config/git/gpg-signing`, the GPG key fingerprint).
 
 ### Packages
 

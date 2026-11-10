@@ -41,13 +41,28 @@ echo "::group::check applied files"
 for f in .zshrc .zprofile .zshenv; do
   zsh -n "$DESTINATION/$f"
 done
-jq empty "$DESTINATION/.claude/settings.json"
-jq empty "$DESTINATION/Library/Application Support/Code - Insiders/User/settings.json"
+git config --file "$DESTINATION/.gitconfig" --list > /dev/null
 
-# private files must stay private
-test "$(stat -c '%a' "$DESTINATION/.ssh" 2> /dev/null || stat -f '%Lp' "$DESTINATION/.ssh")" = "700"
-test "$(stat -c '%a' "$DESTINATION/.gnupg" 2> /dev/null || stat -f '%Lp' "$DESTINATION/.gnupg")" = "700"
-test "$(stat -c '%a' "$DESTINATION/.ssh/config" 2> /dev/null || stat -f '%Lp' "$DESTINATION/.ssh/config")" = "600"
+mode() { stat -c '%a' "$1" 2> /dev/null || stat -f '%Lp' "$1"; }
+if [[ "$(uname)" == Darwin ]]; then
+  jq empty "$DESTINATION/.claude/settings.json"
+  jq empty "$DESTINATION/Library/Application Support/Code - Insiders/User/settings.json"
+  # private files must stay private
+  test "$(mode "$DESTINATION/.ssh")" = "700"
+  test "$(mode "$DESTINATION/.gnupg")" = "700"
+  test "$(mode "$DESTINATION/.ssh/config")" = "600"
+  git config --file "$DESTINATION/.config/git/gpg-signing" --get user.signingkey > /dev/null
+else
+  # Linux (the dev VMs): only the shell, git, tmux, vim and mise; the host's own config signs the commits
+  for f in Library .gnupg .ssh .config/fnox .config/git/gpg-signing .claude; do
+    test ! -e "$DESTINATION/$f" || { echo "$f must not be applied on Linux" >&2; exit 1; }
+  done
+  if git config --file "$DESTINATION/.gitconfig" --get user.signingkey; then
+    echo ".gitconfig must not set a signing key on Linux" >&2
+    exit 1
+  fi
+  test "$(git config --file "$DESTINATION/.gitconfig" --get commit.gpgsign)" = "true"
+fi
 echo "::endgroup::"
 
 echo "::group::external archives resolve"
