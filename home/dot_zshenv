@@ -2,3 +2,8 @@
 
 # Vault CLI default server
 export VAULT_ADDR="https://vault.platform.muehlbachler.io"
+
+# fnox: the developer machines use each repository's `dev` profile
+export FNOX_PROFILE="dev"
+# Pulumi's (Terraform's) Vault provider uses the given token as is instead of creating a child token
+export TERRAFORM_VAULT_SKIP_CHILD_TOKEN="true"

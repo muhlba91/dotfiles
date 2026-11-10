@@ -1,0 +1,16 @@
+# fnox's global config (base layer of every repository's fnox.toml)
+
+# The developer machines' Vault mount (Pulumi tokens, the machines' GCP keys); address from VAULT_ADDR, the token
+# through the Vault CLI (its token helper)
+[providers.dev-infrastructure]
+type = "vault"
+path = "dev-infrastructure"
+credential_command = "vault print token"
+
+# This machine's GCP service account key (dev-mac, it can only impersonate): the source of the repositories'
+# impersonation file; only in the `dev` profile (FNOX_PROFILE) and never put into the environment
+[profiles.dev.secrets.GCP_SOURCE_CREDENTIALS]
+provider = "dev-infrastructure"
+value = "gcp-dev-mac/credentials"
+env = false
+description = "this machine's GCP service account key (dev-mac): it can only impersonate"
