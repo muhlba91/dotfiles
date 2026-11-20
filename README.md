@@ -6,7 +6,7 @@
 
 This repository contains my macOS (Apple Silicon) configuration, managed with [chezmoi](https://www.chezmoi.io): shell, git, GPG/SSH, editors, terminal, Homebrew packages, and VS Code extensions.
 
-On Linux (the dev VMs) it applies only the shell, git, tmux, vim and mise: the host's own configuration provides its identity (git signing, SSH, fnox, Vault).
+On Linux (the dev VMs) it applies only the shell, git, tmux, vim and mise: the host's own configuration provides its identity (git signing, SSH, the global fnox config, Vault). The AWS profile and the fnox lease script apply on both (`aws sso login --use-device-code --profile ci-assume` on a VM).
 
 ---
 
