@@ -89,6 +89,7 @@ The archives in [`home/.chezmoiexternal.toml`](home/.chezmoiexternal.toml) are p
 This repository is public, so no secrets are stored in it.
 
 - Environment secrets live in `~/.config/zsh/secrets.zsh`, which is sourced by `.zshrc` and is not managed.
+- AWS access uses IAM Identity Center, not keys: `~/.aws/config` is managed (the SSO session and the `ci-assume` profile; it holds an account ID and no secrets), while `~/.aws/credentials`, the SSO cache and the CLI cache are ignored. The fnox lease `~/.config/fnox/aws-lease.sh` assumes a repository's CI role with that session; sign in with `aws sso login --profile ci-assume`.
 - Keys, tokens, and cloud credentials are never added; [`.chezmoiignore`](home/.chezmoiignore), [`.gitignore`](.gitignore), and the `forbid secret-like files` hook guard against it.
 - [gitleaks](https://github.com/gitleaks/gitleaks) scans every commit; its configuration is in [`.gitleaks.toml`](.gitleaks.toml).
 

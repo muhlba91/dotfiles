@@ -1,7 +1,10 @@
 # never pick these up, even if someone runs `chezmoi add` on them
 .ssh/known_hosts*
 .ssh/agent
-.aws
+.aws/credentials
+.aws/sso
+.aws/cli
+.aws/amplify
 .kube
 .oci
 .docker
@@ -20,6 +23,7 @@ Library
 .gnupg
 .ssh
 .config/fnox
+.aws
 .config/git/gpg-signing
 .claude
 {{ end }}

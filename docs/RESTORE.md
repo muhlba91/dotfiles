@@ -72,7 +72,7 @@ Recreate `~/.config/zsh/secrets.zsh` (mode `600`) from the password manager. It 
 ## 6. Sign-ins
 
 - `gh auth login`
-- `aws sso login`
+- `aws sso login --profile ci-assume`
 - `gcloud auth login`
 - the Kubernetes configuration (`kubectl`, `talosctl`)
 

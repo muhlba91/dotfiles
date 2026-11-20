@@ -1,0 +1,16 @@
+# Identity Center login for the CI roles: `aws sso login --profile ci-assume`. Only this file is managed, never
+# credentials or the SSO cache (see .chezmoiignore).
+[default]
+region = eu-west-1
+
+[sso-session muehlbachler]
+sso_start_url = https://d-9367026f7e.awsapps.com/start/
+sso_region = eu-west-1
+sso_registration_scopes = sso:account:access
+
+# permission set that can only assume the CI roles (ci-*); the lease script assumes the repository's role with it
+[profile ci-assume]
+sso_session = muehlbachler
+sso_account_id = 454228071914
+sso_role_name = ci-assume
+region = eu-west-1
