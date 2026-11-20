@@ -116,7 +116,6 @@ brew:
     - protonvpn
     - raycast
     - realvnc-connect-viewer
-    - superlist
     - terraform-linters/tap/tflint
     - updf
     - vb-cable
