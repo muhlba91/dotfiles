@@ -53,9 +53,13 @@ if [[ "$(uname)" == Darwin ]]; then
   test "$(mode "$DESTINATION/.ssh/config")" = "600"
   git config --file "$DESTINATION/.config/git/gpg-signing" --get user.signingkey > /dev/null
 else
-  # Linux (the dev VMs): only the shell, git, tmux, vim and mise; the host's own config signs the commits
-  for f in Library .gnupg .ssh .config/fnox .config/git/gpg-signing .claude; do
+  # Linux (the dev VMs): the shell, git, tmux, vim, mise, the AWS profile and the fnox lease script; the host's own
+  # config signs the commits and provides the global fnox config
+  for f in Library .gnupg .ssh .config/fnox/config.toml .config/git/gpg-signing .claude; do
     test ! -e "$DESTINATION/$f" || { echo "$f must not be applied on Linux" >&2; exit 1; }
+  done
+  for f in .aws/config .config/fnox/aws-lease.sh; do
+    test -e "$DESTINATION/$f" || { echo "$f must be applied on Linux" >&2; exit 1; }
   done
   if git config --file "$DESTINATION/.gitconfig" --get user.signingkey; then
     echo ".gitconfig must not set a signing key on Linux" >&2
