@@ -34,6 +34,11 @@ repos:
     rev: v1.7.12
     hooks:
       - id: actionlint
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.24.2
+    hooks:
+      - id: markdownlint-cli2
+        language_version: "22.11.0"
   - repo: local
     hooks:
       - id: zsh-syntax
@@ -45,4 +50,7 @@ repos:
         name: forbid secret-like files
         language: fail
         entry: secret-like file must not be committed
-        files: (secrets\.zsh|\.pem$|\.key$|(^|/)id_(rsa|ecdsa|ed25519)|known_hosts|hosts\.yml|\.aws/|\.kube/|\.oci/|\.docker/config|\.claude\.json|(^|/)gpg/)
+        # chezmoi source names: dot_ prefix, private_ for private files; the tracked aws and gnupg config files are excluded below
+        files: (secrets\.zsh|\.pem$|\.key$|(^|/)(private_)?id_(rsa|ecdsa|ed25519)|known_hosts|hosts\.yml|(^|/)(private_)?dot_aws/|(^|/)(private_)?dot_kube/|(^|/)(private_)?dot_oci/|(^|/)(private_)?dot_docker/config|(^|/)(private_)?dot_claude\.json|(^|/)(private_)?dot_gnupg/|(^|/)gpg/)
+        # tracked config without secrets: aws profile and gnupg agent/gpg/scdaemon settings
+        exclude: ^home/private_(dot_aws/private_config|dot_gnupg/private_(gpg-agent|gpg|scdaemon)\.conf)$

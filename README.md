@@ -1,8 +1,8 @@
 # Dotfiles
 
-[![](https://img.shields.io/github/license/muhlba91/dotfiles?style=for-the-badge)](LICENSE.md)
-[![](https://img.shields.io/github/actions/workflow/status/muhlba91/dotfiles/verify.yml?style=for-the-badge)](https://github.com/muhlba91/dotfiles/actions/workflows/verify.yml)
-[![](https://api.scorecard.dev/projects/github.com/muhlba91/dotfiles/badge?style=for-the-badge)](https://scorecard.dev/viewer/?uri=github.com/muhlba91/dotfiles)
+[![License](https://img.shields.io/github/license/muhlba91/dotfiles?style=for-the-badge)](LICENSE.md)
+[![Verify](https://img.shields.io/github/actions/workflow/status/muhlba91/dotfiles/verify.yml?style=for-the-badge)](https://github.com/muhlba91/dotfiles/actions/workflows/verify.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/muhlba91/dotfiles/badge?style=for-the-badge)](https://scorecard.dev/viewer/?uri=github.com/muhlba91/dotfiles)
 
 This repository contains my macOS (Apple Silicon) configuration, managed with [chezmoi](https://www.chezmoi.io): shell, git, GPG/SSH, editors, terminal, Homebrew packages, and VS Code extensions.
 
