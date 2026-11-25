@@ -1,0 +1,8 @@
+---
+roots:
+  - label: personal
+    path: ~/Documents/Finances/Invoices
+  - label: household
+    path: "~/Common Documents/Finances/Invoices"
+sources:
+  - mail

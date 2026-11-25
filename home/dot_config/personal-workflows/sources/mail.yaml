@@ -1,0 +1,5 @@
+---
+kind: mailbox
+adapter: spark
+accounts: []
+folder: Inbox
