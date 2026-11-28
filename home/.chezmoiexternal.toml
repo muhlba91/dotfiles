@@ -27,5 +27,5 @@
 # renovate: datasource=git-refs depName=https://github.com/vim-airline/vim-airline
 [".vim/pack/plugins/start/vim-airline"]
     type = "archive"
-    url = "https://github.com/vim-airline/vim-airline/archive/00f4a8fca9eca8c5dbdf182dd698364c75a71f71.tar.gz"
+    url = "https://github.com/vim-airline/vim-airline/archive/059052c8ed4252e90398271c831a9aafd35a84c9.tar.gz"
     stripComponents = 1
